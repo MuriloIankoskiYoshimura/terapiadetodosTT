@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assinaturas</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { display: flex; justify-content: space-around; }
+        .plan { border: 1px solid #ccc; padding: 20px; width: 30%; text-align: center; background-color: #f4f4f4; }
+        .plan h2 { color: #7b467b; }
+        .plan p { margin: 10px 0; }
+        .plan button { padding: 10px 20px; background-color: #7b467b; color: #fff; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Escolha seu Plano de Assinatura</h1>
+    <div class="container">
+        <div class="plan">
+            <h2>Plano Básico</h2>
+            <p>R$ 19,90 / mês</p>
+            <p>Consultas presenciais e online</p>
+            <p>Consultas a partir de R$ 15,00</p>
+            <p>Desconto em suplementos</p>
+            <p>Até 75% de desconto em terapias</p>
+            <button onclick="assinar('Básico', 19.90)">Assine agora</button>
+        </div>
+        <div class="plan">
+            <h2>Plano Padrão</h2>
+            <p>R$ 29,90 / mês</p>
+            <p>Consultas presenciais e online</p>
+            <p>Consultas a partir de R$ 15,00</p>
+            <p>Desconto em suplementos</p>
+            <p>Inclui dependentes diretos</p>
+            <button onclick="assinar('Padrão', 29.90)">Assine agora</button>
+        </div>
+        <div class="plan">
+            <h2>Plano Premium</h2>
+            <p>R$ 39,90 / mês</p>
+            <p>Consultas presenciais e online</p>
+            <p>Consultas a partir de R$ 15,00</p>
+            <p>Desconto em suplementos</p>
+            <p>Inclui dependentes diretos e indiretos</p>
+            <button onclick="assinar('Premium', 39.90)">Assine agora</button>
+
+            <!-- INICIO FORMULARIO BOTAO PAGBANK: NAO EDITE OS COMANDOS DAS LINHAS ABAIXO -->
+            <form action="https://pagseguro.uol.com.br/pre-approvals/request.html" method="post">
+                <input type="hidden" name="code" value="E9994A141313C51884DA5F85BE67B234" />
+                <input type="hidden" name="iot" value="button" />
+                <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/assinaturas/209x48-assinar-roxo-assina.gif" name="submit" alt="Pague com PagBank - É rápido, grátis e seguro!" width="209" height="48" />
+            </form>
+            <!-- FINAL FORMULARIO BOTAO PAGBANK -->
+
+        </div>
+    </div>
+
+    <script>
+        function assinar(plano, valor) {
+            window.location.href = "processa_pagamento.php?plano=" + plano + "&valor=" + valor;
+        }
+    </script>
+</body>
+</html>
